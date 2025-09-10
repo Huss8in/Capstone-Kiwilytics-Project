@@ -29,3 +29,5 @@ The Airflow DAG (`sales_revenue_pipeline`) includes three main tasks:
 - Automated daily extraction, computation, and visualization of sales revenue.  
 - Clear insights into revenue trends and total daily sales.  
 
+## Visualization
+<img width="3570" height="1767" alt="image" src="https://github.com/user-attachments/assets/dd4e6f74-b79a-460b-bbbb-6391c73f64d1" />
