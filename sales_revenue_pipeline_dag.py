@@ -54,9 +54,20 @@ def create_visualization(**context):
     df = pd.DataFrame(data)
     df['sale_date'] = pd.to_datetime(df['sale_date'])
     
-    plt.figure(figsize=(12, 6))
-    plt.plot(df['sale_date'], df['daily_revenue'], marker='o', linewidth=2)
-    plt.title('Daily Sales Revenue')
+    plt.figure(figsize=(14, 8))
+    plt.plot(df['sale_date'], df['daily_revenue'], marker='o', linewidth=2, markersize=8)
+    
+    # Add value labels at each point
+    for i, row in df.iterrows():
+        plt.annotate(f'${row["daily_revenue"]:,.0f}', 
+                    (row['sale_date'], row['daily_revenue']),
+                    textcoords="offset points", 
+                    xytext=(0,10), 
+                    ha='center', 
+                    fontsize=9,
+                    bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
+    
+    plt.title('Daily Sales Revenue', fontsize=16, fontweight='bold')
     plt.xlabel('Date')
     plt.ylabel('Revenue ($)')
     plt.xticks(rotation=45)
